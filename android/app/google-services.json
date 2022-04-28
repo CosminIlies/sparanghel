@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "774642441941",
+    "project_id": "math-now-ed2e6",
+    "storage_bucket": "math-now-ed2e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774642441941:android:425c25f92b3d394f900c5c",
+        "android_client_info": {
+          "package_name": "com.example.sparanghel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774642441941-ccamt2857blh1ckdrp2ib917gse3065e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARfTP5CdpoKAd5TPBB7Jw-Z-oQ2r0i-d0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774642441941-ccamt2857blh1ckdrp2ib917gse3065e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
