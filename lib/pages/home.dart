@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sparanghel/components/lesson_card.dart';
+import 'package:sparanghel/pages/leaderboard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,11 +18,25 @@ class _HomePageState extends State<HomePage> {
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
-            children: const [
-              LessonCard(),
-              LessonCard(),
-              LessonCard(),
-              LessonCard(),
+            children: [
+              const LessonCard(),
+              const LessonCard(),
+              const LessonCard(),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).popAndPushNamed("/leaderboard");
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(12.0),
+                  primary: const Color(0xFFB33030),
+                ),
+                icon: const Icon(
+                  Icons.email,
+                ),
+                label: const Text(
+                  "Leaderboard",
+                ),
+              ),
             ],
           ),
         ),
