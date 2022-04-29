@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:774642441941:android:425c25f92b3d394f900c5c",
+        "mobilesdk_app_id": "1:774642441941:android:3bf98e571f7377b2900c5c",
         "android_client_info": {
-          "package_name": "com.example.sparanghel"
+          "package_name": "com.sparanghel.mathnow"
         }
       },
       "oauth_client": [
