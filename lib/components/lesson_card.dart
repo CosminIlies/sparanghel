@@ -11,7 +11,7 @@ class _LessonCardState extends State<LessonCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.green,
+      color: Color(0xFFD3ECA7),
       child: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
