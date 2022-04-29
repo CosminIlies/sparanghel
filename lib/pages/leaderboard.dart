@@ -16,25 +16,26 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              SizedBox(
+            children: [
+              const SizedBox(
                 height: 40,
               ),
-              Expanded(
-                child: Text(
-                  'Complete tests to earn points and climb the leaderboard!',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.black,
-                  ),
+              const Text(
+                'Complete tests to earn points and climb the leaderboard!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.black,
                 ),
               ),
-              LeaderboardPosition(),
-              LeaderboardPosition(),
-              LeaderboardPosition(),
-              LeaderboardPosition(),
+              Column(
+                children: const [
+                  LeaderboardPosition(),
+                  LeaderboardPosition(),
+                  LeaderboardPosition(),
+                ],
+              )
             ],
           )),
       appBar: AppBar(

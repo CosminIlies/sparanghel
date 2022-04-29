@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sparanghel/pages/home.dart';
 import 'package:sparanghel/pages/leaderboard.dart';
 import 'package:sparanghel/pages/login.dart';
+import 'package:sparanghel/pages/quiz.dart';
+
+import 'models/problem.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +32,9 @@ class MyApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      home: const LoginPage(),
+      home: QuizPage(
+        problem: Problem("qwer", ["qwe", "qwe"]),
+      ),
       routes: {
         "/login": (_) => LoginPage(),
         "/home": (_) => HomePage(),
