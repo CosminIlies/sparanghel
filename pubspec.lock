@@ -100,7 +100,7 @@ packages:
     source: hosted
     version: "3.3.13"
   firebase_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_core
       url: "https://pub.dartlang.org"
@@ -267,7 +267,6 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "1.8.1"
   plugin_platform_interface:
     dependency: transitive
@@ -283,9 +282,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1+1"
-=======
-    version: "1.8.0"
->>>>>>> bc5b0693e995d55d3a4a8b50617130f6b2896df1
   sky_engine:
     dependency: transitive
     description: flutter
@@ -332,7 +328,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.8"
+    version: "0.4.9"
   typed_data:
     dependency: transitive
     description:
