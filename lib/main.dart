@@ -3,7 +3,6 @@ import 'package:sparanghel/pages/home.dart';
 import 'package:sparanghel/pages/leaderboard.dart';
 import 'package:sparanghel/pages/login.dart';
 
-//linie de cod
 void main() {
   runApp(const MyApp());
 }
