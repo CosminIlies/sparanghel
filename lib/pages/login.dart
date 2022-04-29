@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sparanghel/services/auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,8 +27,14 @@ class _LoginPageState extends State<LoginPage> {
               height: 75,
             ),
             ElevatedButton.icon(
-              onPressed: () {
-                Navigator.of(context).popAndPushNamed("/home");
+              onPressed: () async {
+                dynamic result = await AuthService.googleLogIn();
+                if (result != null) {
+                  Navigator.of(context).popAndPushNamed("/main");
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text("Couldn't sign in with google!")));
+                }
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(12.0),

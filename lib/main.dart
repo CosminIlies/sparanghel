@@ -1,13 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sparanghel/pages/home.dart';
 import 'package:sparanghel/pages/leaderboard.dart';
 import 'package:sparanghel/pages/login.dart';
-import 'package:sparanghel/pages/quiz.dart';
+import 'package:sparanghel/pages/main_page.dart';
 
-import 'models/problem.dart';
-
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,10 +37,9 @@ class MyApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      home: QuizPage(
-        problem: Problem("qwer", ["qwe", "qwe"]),
-      ),
+      home: const LoginPage(),
       routes: {
+        "/main": (_) => MainPage(),
         "/login": (_) => LoginPage(),
         "/home": (_) => HomePage(),
         "/leaderboard": (_) => LeaderboardPage(),

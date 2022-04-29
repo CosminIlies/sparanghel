@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sparanghel/components/lesson_card.dart';
-import 'package:sparanghel/pages/leaderboard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
