@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sparanghel/pages/home.dart';
+import 'package:sparanghel/pages/leaderboard.dart';
 import 'package:sparanghel/pages/login.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/login": (_) => LoginPage(),
         "/home": (_) => HomePage(),
+        "/leaderboard": (_) => LeaderboardPage(),
       },
     );
   }
