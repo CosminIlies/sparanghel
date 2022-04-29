@@ -1,6 +1,6 @@
 class Problem {
   String body;
   List<String> options;
-
-  Problem(this.body, this.options);
+  int ans;
+  Problem(this.body, this.options, this.ans);
 }

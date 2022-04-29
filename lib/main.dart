@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: QuizPage(
-        problem: Problem("qwer", ["qwe", "qwe"]),
+        problem: Problem("What is 2 + 3 equal to?", ["6", "-3", "5", "194"], 3),
       ),
       routes: {
         "/login": (_) => LoginPage(),
