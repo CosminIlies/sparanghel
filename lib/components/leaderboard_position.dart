@@ -17,6 +17,10 @@ class _LeaderboardPositionState extends State<LeaderboardPosition> {
           Text(
             '1.',
             textAlign: TextAlign.left,
+            style: TextStyle(
+                color: Color(0xFF000000),
+                fontWeight: FontWeight.bold,
+                fontSize: 15),
           ),
           SizedBox(
             width: 20,
@@ -29,17 +33,27 @@ class _LeaderboardPositionState extends State<LeaderboardPosition> {
           SizedBox(
             width: 20,
           ),
-          Text('Marian Puiu'),
+          Text(
+            'Marian Puiu',
+            style: TextStyle(
+                color: Color(0xFF000000),
+                fontWeight: FontWeight.bold,
+                fontSize: 15),
+          ),
           SizedBox(),
           Expanded(
             child: Text(
               '20P',
               textAlign: TextAlign.right,
+              style: TextStyle(
+                  color: Color(0xFF000000),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
             ),
           ),
         ],
       ),
-      color: const Color.fromARGB(255, 32, 32, 32),
+      color: const Color(0xFFD3ECA7),
       padding: const EdgeInsets.all(20.0),
       margin: const EdgeInsets.all(1.0),
     );

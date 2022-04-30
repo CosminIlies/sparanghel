@@ -14,29 +14,44 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
     return Scaffold(
       body: SizedBox(
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 40,
-              ),
-              const Text(
-                'Complete tests to earn points and climb the leaderboard!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Colors.black,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 40,
                 ),
-              ),
-              Column(
-                children: const [
-                  LeaderboardPosition(),
-                  LeaderboardPosition(),
-                  LeaderboardPosition(),
-                ],
-              )
-            ],
+                const Text(
+                  'Complete tests to earn points and climb the leaderboard!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                Column(
+                  children: const [
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                    LeaderboardPosition(),
+                  ],
+                ),
+              ],
+            ),
           )),
       appBar: AppBar(
         backgroundColor: const Color(0xFFB33030),
