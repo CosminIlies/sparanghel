@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sparanghel/models/user_model.dart';
 
 class LeaderboardPosition extends StatefulWidget {
-  const LeaderboardPosition({Key? key}) : super(key: key);
+  final UserModel user;
+  final int index;
+  const LeaderboardPosition({Key? key, required this.user, required this.index})
+      : super(key: key);
 
   @override
   State<LeaderboardPosition> createState() => _LeaderboardPositionState();
@@ -13,42 +17,32 @@ class _LeaderboardPositionState extends State<LeaderboardPosition> {
     return Container(
       width: double.infinity,
       child: Row(
-        children: const [
+        children: [
           Text(
-            '1.',
+            widget.index.toString() + '.',
             textAlign: TextAlign.left,
-            style: TextStyle(
-                color: Color(0xFF000000),
-                fontWeight: FontWeight.bold,
-                fontSize: 15),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           CircleAvatar(
             radius: 20,
-            backgroundImage: NetworkImage(
-                'https://cdn.discordapp.com/attachments/305977231115550720/969677810975273010/WhatsApp_Image_2022-04-28_at_11.39.02_PM.jpeg'),
+            backgroundImage: NetworkImage(widget.user.profilePic),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Text(
-            'Marian Puiu',
-            style: TextStyle(
-                color: Color(0xFF000000),
-                fontWeight: FontWeight.bold,
-                fontSize: 15),
+            widget.user.name,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
-          SizedBox(),
+          const SizedBox(),
           Expanded(
             child: Text(
-              '20P',
+              widget.user.points.toString() + 'P ',
               textAlign: TextAlign.right,
-              style: TextStyle(
-                  color: Color(0xFF000000),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
           ),
         ],

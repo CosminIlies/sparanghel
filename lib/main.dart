@@ -12,7 +12,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color(0xFFA1B57D),
         scaffoldBackgroundColor: const Color(0xFFA1B57D),
         textTheme: const TextTheme(
-          headline1: TextStyle(color: Color(0xFFDEDEDE)),
-          headline2: TextStyle(color: Color(0xFFDEDEDE)),
-          bodyText1: TextStyle(color: Color(0xFFDEDEDE)),
-          bodyText2: TextStyle(color: Color(0xFFDEDEDE)),
+          headline1: TextStyle(color: Color(0xFF19282F)),
+          headline2: TextStyle(color: Color(0xFF19282F)),
+          bodyText1: TextStyle(color: Color(0xFF19282F)),
+          bodyText2: TextStyle(color: Color(0xFF19282F)),
         ),
         buttonTheme: const ButtonThemeData(
           buttonColor: Color(0xFFB33030),
@@ -39,10 +39,10 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginPage(),
       routes: {
-        "/main": (_) => MainPage(),
-        "/login": (_) => LoginPage(),
-        "/home": (_) => HomePage(),
-        "/leaderboard": (_) => LeaderboardPage(),
+        "/main": (_) => const MainPage(),
+        "/login": (_) => const  LoginPage(),
+        "/home": (_) => const  HomePage(),
+        "/leaderboard": (_) => const LeaderboardPage(),
       },
     );
   }

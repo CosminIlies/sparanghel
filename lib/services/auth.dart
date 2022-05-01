@@ -7,15 +7,37 @@ class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final GoogleSignIn googleSignIn = GoogleSignIn();
   static UserModel? _user;
-
-  static Future<UserModel?> _transformInUserModel(User? user) async {
-    return user != null
-        ? UserModel(user.uid, user.displayName!, user.photoURL!, 0)
-        : null;
-  }
-
   static UserModel? get user {
     return _user;
+  }
+
+  static Future<UserModel?> _transformInUserModel(User? user) async {
+    UserModel? userModel = await DatabaseService.getUser(user!.uid);
+    if (userModel == null) {
+      DatabaseService.createUser(
+          user.uid, user.displayName!, user.photoURL!, 0);
+      return user != null
+          ? UserModel(user.uid, user.displayName!, user.photoURL!, 0)
+          : null;
+    } else {
+      return user != null
+          ? UserModel(
+              user.uid, user.displayName!, user.photoURL!, userModel.points)
+          : null;
+    }
+
+    // if (userModel == null) {
+    //   await DatabaseService.createUser(
+    //       user.uid, user.displayName!, user.photoURL!, 0);
+    // }
+  }
+
+  static void updateUserFromDatabase() async {
+    _user = await DatabaseService.getUser(AuthService.user!.uid);
+  }
+
+  static void updateUserFromDatabaseWithUid(String uid) async {
+    _user = await DatabaseService.getUser(uid);
   }
 
   static Future<dynamic> googleLogIn() async {
@@ -34,7 +56,8 @@ class AuthService {
         await FirebaseAuth.instance.signInWithCredential(credential);
 
     _user = await _transformInUserModel(userCredential.user);
-    DatabaseService.getUser(AuthService.user!.uid);
+
+
     return _user;
   }
 

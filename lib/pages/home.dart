@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sparanghel/components/lesson_card.dart';
-import 'package:sparanghel/models/quiz.dart';
+import 'package:sparanghel/models/course.dart';
 import 'package:sparanghel/services/database.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,13 +25,13 @@ class _HomePageState extends State<HomePage> {
           width: MediaQuery.of(context).size.width,
           child: SingleChildScrollView(
             child: FutureBuilder(
-                future: DatabaseService.getAllQuizzes(),
+                future: DatabaseService.getAllCourses(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    List<Quiz> quizzes = snapshot.data as List<Quiz>;
+                    List<Course> courses = snapshot.data as List<Course>;
                     return Column(
-                        children: quizzes
-                            .map((quiz) => LessonCard(quiz: quiz))
+                        children: courses
+                            .map((course) => LessonCard(course: course))
                             .toList());
                   } else {
                     return const Text("loading...");

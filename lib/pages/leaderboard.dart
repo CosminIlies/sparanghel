@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sparanghel/components/leaderboard_position.dart';
+import 'package:sparanghel/models/user_model.dart';
+import 'package:sparanghel/services/database.dart';
 
 class LeaderboardPage extends StatefulWidget {
   const LeaderboardPage({Key? key}) : super(key: key);
@@ -9,6 +11,8 @@ class LeaderboardPage extends StatefulWidget {
 }
 
 class _LeaderboardPageState extends State<LeaderboardPage> {
+  List<UserModel> users = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,29 +31,29 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
-                    color: Colors.black,
                   ),
                 ),
-                Column(
-                  children: const [
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                    LeaderboardPosition(),
-                  ],
+                const SizedBox(
+                  height: 40,
                 ),
+                FutureBuilder(
+                    future: DatabaseService.getAllUsers(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        users = snapshot.data as List<UserModel>;
+                        users.sort((user1, user2) =>
+                            user1.points.compareTo(user2.points));
+                        return Column(
+                            children: users
+                                .map((e) => LeaderboardPosition(
+                                      user: e,
+                                      index: users.indexOf(e) + 1,
+                                    ))
+                                .toList());
+                      } else {
+                        return const Text("loading...");
+                      }
+                    }),
               ],
             ),
           )),

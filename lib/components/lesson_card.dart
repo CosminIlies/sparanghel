@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sparanghel/models/quiz.dart';
+import 'package:sparanghel/models/course.dart';
 import 'package:sparanghel/pages/quiz.dart';
-import 'package:sparanghel/services/database.dart';
 
 class LessonCard extends StatefulWidget {
-  final Quiz quiz;
-  const LessonCard({Key? key, required this.quiz}) : super(key: key);
+  final Course course;
+  const LessonCard({Key? key, required this.course}) : super(key: key);
 
   @override
   State<LessonCard> createState() => _LessonCardState();
@@ -27,9 +26,9 @@ class _LessonCardState extends State<LessonCard> {
                 width: 75,
               ),
               Text(
-                widget.quiz.name,
+                widget.course.name,
                 style: const TextStyle(
-                    color: Color(0xFF000000),
+                    color: Color(0xFF19282F),
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
               )
@@ -54,7 +53,7 @@ class _LessonCardState extends State<LessonCard> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => QuizPage(
-                        quiz: widget.quiz,
+                        quiz: widget.course.quiz,
                       ),
                     ),
                   );
@@ -66,11 +65,11 @@ class _LessonCardState extends State<LessonCard> {
                 ),
               ),
               Text(
-                widget.quiz.points.toString() + " P",
+                widget.course.quiz.points.toString() + " P",
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black,
+                  color: Color(0xFF19282F),
                 ),
               )
             ],
