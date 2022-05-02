@@ -101,6 +101,7 @@ class DatabaseService {
         .then((DocumentSnapshot snapshot) async {
       course = Course(
         snapshot["name"],
+        snapshot["icon"],
         (await getQuiz(snapshot["quizId"]))!,
         (await getLesson(snapshot["lessonId"]))!,
       );
@@ -113,7 +114,8 @@ class DatabaseService {
     Quiz? quiz;
 
     await quizCollection.doc(id).get().then((DocumentSnapshot snapshot) async {
-      quiz = Quiz(await getProblems(id), snapshot["points"]);
+      quiz = Quiz(
+          await getProblems(id), snapshot["points"], snapshot["nrOfProblems"]);
     });
 
     return quiz;
@@ -161,25 +163,25 @@ class DatabaseService {
     return lesson;
   }
 
-  // static Future<List<Problem>> getLessonPages(String quizId) async {
-  //   List<Problem> problems = [];
-  //   QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-  //       .collection('quizzes/' + quizId + "/problems")
-  //       .get();
+  static Future<List<Problem>> getLessonPages(String quizId) async {
+    List<Problem> problems = [];
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('quizzes/' + quizId + "/problems")
+        .get();
 
-  //   for (var doc in querySnapshot.docs) {
-  //     List<String> options = [
-  //       "Option 1",
-  //       "Option 2",
-  //       "option 3",
-  //       "option 4",
-  //     ];
+    for (var doc in querySnapshot.docs) {
+      List<String> options = [
+        "Option 1",
+        "Option 2",
+        "option 3",
+        "option 4",
+      ];
 
-  //     //add options
+      //add options
 
-  //     problems.add(Problem(doc["body"], options, doc["ans"]));
-  //   }
+      problems.add(Problem(doc["body"], options, doc["ans"]));
+    }
 
-  //   return problems;
-  // }
+    return problems;
+  }
 }

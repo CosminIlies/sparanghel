@@ -22,8 +22,9 @@ class _LessonCardState extends State<LessonCard> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Image.network(
-                'https://picsum.photos/250?image=9',
+                widget.course.icon,
                 width: 75,
+                height: 75,
               ),
               Text(
                 widget.course.name,

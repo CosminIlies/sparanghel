@@ -42,7 +42,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
                       if (snapshot.connectionState == ConnectionState.done) {
                         users = snapshot.data as List<UserModel>;
                         users.sort((user1, user2) =>
-                            user1.points.compareTo(user2.points));
+                            -user1.points.compareTo(user2.points));
                         return Column(
                             children: users
                                 .map((e) => LeaderboardPosition(

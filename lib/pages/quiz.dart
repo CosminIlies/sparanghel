@@ -23,7 +23,7 @@ class _QuizPageState extends State<QuizPage> {
   void initState() {
     super.initState();
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < widget.quiz.nrOfProblems; i++) {
       int _rand = Random().nextInt(widget.quiz.problems.length);
       porblems.add(widget.quiz.problems[_rand]);
     }
