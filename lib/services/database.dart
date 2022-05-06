@@ -157,31 +157,22 @@ class DatabaseService {
         .doc(id)
         .get()
         .then((DocumentSnapshot snapshot) async {
-      lesson = Lesson(["lesson1", "lesson2"]);
+      lesson = Lesson(await getLessonPages(id));
     });
 
     return lesson;
   }
 
-  static Future<List<Problem>> getLessonPages(String quizId) async {
-    List<Problem> problems = [];
+  static Future<List<String>> getLessonPages(String lessonId) async {
+    List<String> pages = [];
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-        .collection('quizzes/' + quizId + "/problems")
+        .collection('lessons/' + lessonId + "/pages")
         .get();
 
     for (var doc in querySnapshot.docs) {
-      List<String> options = [
-        "Option 1",
-        "Option 2",
-        "option 3",
-        "option 4",
-      ];
-
-      //add options
-
-      problems.add(Problem(doc["body"], options, doc["ans"]));
+      pages.add(doc["body"]);
     }
 
-    return problems;
+    return pages;
   }
 }

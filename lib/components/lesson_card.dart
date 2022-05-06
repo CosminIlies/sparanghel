@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sparanghel/models/course.dart';
+import 'package:sparanghel/pages/lesson.dart';
 import 'package:sparanghel/pages/quiz.dart';
 
 class LessonCard extends StatefulWidget {
@@ -42,7 +43,15 @@ class _LessonCardState extends State<LessonCard> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LessonPage(
+                        course: widget.course,
+                      ),
+                    ),
+                  );
+                },
                 child: const Text("Take course"),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(12.0),
