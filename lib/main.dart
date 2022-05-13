@@ -6,6 +6,9 @@ import 'package:sparanghel/pages/leaderboard.dart';
 import 'package:sparanghel/pages/login.dart';
 import 'package:sparanghel/pages/main_page.dart';
 
+//flutter demo
+//icons
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MathNow',
       theme: ThemeData(
         primaryColor: const Color(0xFFD3ECA7),
         backgroundColor: const Color(0xFFA1B57D),
@@ -40,8 +43,8 @@ class MyApp extends StatelessWidget {
       home: const LoginPage(),
       routes: {
         "/main": (_) => const MainPage(),
-        "/login": (_) => const  LoginPage(),
-        "/home": (_) => const  HomePage(),
+        "/login": (_) => const LoginPage(),
+        "/home": (_) => const HomePage(),
         "/leaderboard": (_) => const LeaderboardPage(),
       },
     );
