@@ -18,10 +18,14 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.circle,
-              size: 250,
-              color: Color(0xFFD3ECA7),
+            // const Icon(
+            //   Icons.circle,
+            //   size: 250,
+            //   color: Color(0xFFD3ECA7),
+            // ),
+            Image.asset(
+              "assets/MathNow2.png",
+              width: 250,
             ),
             const SizedBox(
               height: 75,
@@ -47,34 +51,6 @@ class _LoginPageState extends State<LoginPage> {
                 "Login with google",
               ),
             ),
-            const SizedBox(
-              height: 25.0,
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                Navigator.of(context).popAndPushNamed("/home");
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(12.0),
-                primary: const Color(0xFFB33030),
-              ),
-              icon: const Icon(
-                Icons.email,
-              ),
-              label: const Text(
-                "Login with email",
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                "You don't have an account? Create one here!",
-                style: TextStyle(color: Color(0xFFDEDEDE)),
-              ),
-            )
           ],
         ),
       ),
