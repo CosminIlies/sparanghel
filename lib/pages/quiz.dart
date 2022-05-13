@@ -40,11 +40,12 @@ class _QuizPageState extends State<QuizPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                (_index + 1).toString() + ". " + porblems[_index].body,
-                textAlign: TextAlign.center,
+                (_index + 1).toString() +
+                    ". " +
+                    porblems[_index].body.replaceAll(r'\n', '\n'),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 20,
                   color: Colors.black,
                 ),
               ),

@@ -28,7 +28,7 @@ class _LessonPageState extends State<LessonPage> {
             child: Column(
               children: [
                 Text(
-                  widget.course.lesson.body[_index],
+                  widget.course.lesson.body[_index].replaceAll(r'\n', '\n'),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
@@ -37,8 +37,8 @@ class _LessonPageState extends State<LessonPage> {
                 ),
                 const SizedBox(height: 50),
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                     prevBtn(context),
                     nextBtn(context),
                     // ElevatedButton(
